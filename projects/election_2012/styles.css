@@ -1,0 +1,123 @@
+﻿
+html {
+  background-color: #f8f7f2;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 130%;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+h2 {
+  margin:0;
+  padding:0
+}
+
+.wrapper{
+  height: 650px;
+}
+
+.chart {
+  display: block;
+  margin: 0 auto;
+}
+
+.description {
+  color:  #777;
+  margin: 0 auto;
+  padding: 20px 100px 20px 0;
+  width: 700px; 
+}
+
+.tooltip {
+  background-color: #fff;
+  border: 1px #777 solid;
+  border-radius: 2px;
+  box-shadow: 5px 5px 10px rgba(128,128,128,0.5);
+  font-family: arial, sans-serif;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  z-index: 10;
+}
+.tooltip h2 {
+  font-size: 1em;
+  margin: 0;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: #000;
+}
+.axis text {
+  color: #000;
+  font-size: 12px;
+}
+      
+.labelX, .labelY {
+  font-size: 16px;
+}
+.labelX {
+  text-anchor: middle;
+}
+.arrow {
+  stroke-width: 2px;
+  stroke: #ccc;
+  fill: none;
+}
+
+.nav {
+  margin: 20px auto;
+  padding: 0;
+  width: 650px;
+}
+.nav li {
+  background: #f8f8f8;
+  border: 1px #ccc solid;
+  color: #aaa;
+  cursor: pointer;
+  display: inline;
+  font-size: small;
+  list-style-type: none;
+  padding: 10px 17px;
+}
+.nav li:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.nav li:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.nav li.active {
+  background: #ddd;
+  border-color: #777;
+  box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+  color: #000;
+}
+
+.key {
+}
+.key-title {
+  font-weight: bold;
+}
+.key text {
+  font-family: sans-serif;
+  shape-rendering: crispedges;
+}
+
+circle {
+  transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s
+}
+circle.match {
+  opacity: 1;
+  visibility: visible;
+}
+circle.nomatch {
+  opacity: 0;
+  visibility: hidden;
+}

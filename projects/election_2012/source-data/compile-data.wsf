@@ -1,0 +1,73 @@
+﻿
+<job>
+<script src="../../../common/js/helpers.js"/>
+<script src="../../../common/js/json2.js" /> <!-- Not supported in JScript 5.7 with WSH-->
+<script>
+  /// <reference path="../bin/shared.js">
+  /// <reference path="../bin/json2.js"
+
+ var acsFieldValues = [
+  "NAME",        //  0  name of county/state
+  "B19013_001E", //  1  <variable name = "B19013_001E" concept="B19013.  Median Household Income"> Median household income in the past 12 months (in 2011 inflation-adjusted dollars) </variable>
+  "B01003_001E", //  2  <variable name = "B01003_001E" concept="B01003.  Total Population"> Total </variable>
+  "B15002_001E", //  3  <variable name = "B15002_001E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Total: </variable>
+  "B15002_015E", //  4  <variable name = "B15002_015E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Male:!!Bachelor's degree </variable>
+  "B15002_032E", //  5  <variable name = "B15002_032E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Female:!!Bachelor's degree </variable>
+  "B15002_016E", //  6  <variable name = "B15002_016E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Male:!!Master's degree </variable>
+  "B15002_033E", //  7  <variable name = "B15002_033E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Female:!!Master's degree </variable>
+  "B15002_017E", //  8  <variable name = "B15002_017E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Male:!!Professional school degree </variable>
+  "B15002_034E", //  9  <variable name = "B15002_034E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Female:!!Professional school degree </variable>
+  "B15002_018E", // 10 <variable name = "B15002_018E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Male:!!Doctorate degree </variable>
+  "B15002_035E", // 11 <variable name = "B15002_035E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Female:!!Doctorate degree </variable>
+  "B19058_001E", // 12 <variable name = "B19058_001E" concept="B19058.  Public Assistance Income or Food Stamps/SNAP in the Past 12 Months for Households"> Total: </variable>
+  "B19058_002E"  // 13 <variable name = "B19058_002E" concept="B19058.  Public Assistance Income or Food Stamps/SNAP in the Past 12 Months for Households"> With cash public assistance or Food Stamps/SNAP </variable>    
+                 // 14 state code
+                 // 15 county code [add with above to get fips]
+]
+
+  if (false) { // set true to refresh data; otherwise used cached copy
+    var electionRequest = GET("http://apps.washingtonpost.com/data/politics/elections/api/v1/results/winners/?format=json&office_name_slug=president&reporting_unit_type=county&polling_date=2012-11-06")
+    file.write("cached-elections.js", electionRequest.text)
+
+    var electionRequest = GET("http://api.census.gov/data/2012/acs5?key=7c5d5242b3a3d495bbfb6c0534a9587b178b92b1&get="+acsFieldValues.join(",")+"&for=county:*")
+    file.write("cached-census.js", electionRequest.text)
+  }
+
+  var electionJSON    = JSON.parse(file.read("cached-elections.js")),
+      censusJSON      = JSON.parse(file.read("cached-census.js")),
+      electionResults = electionJSON.objects.president
+      results         = [],
+      errors          = []
+
+  for (var i = 1; i < censusJSON.length; i++) {
+
+    var countyData = censusJSON[i]
+
+    var o = {
+        fips: countyData[countyData.length-2] + countyData[countyData.length-1],
+        name: countyData[0],
+        inc : countyData[1],
+        pop:  countyData[2],
+        snap: Math.round(10000 * (parseFloat(countyData[13])/parseFloat(countyData[12]))) / 10000
+      }
+      , electionData = electionResults[o.fips]
+
+      if (electionData && electionData.winner) {
+        var offset = (electionData.winner == "R") ? -1 : 1
+          , eduTotal =  parseFloat(countyData[3])
+          , gradTotal = parseFloat(countyData[4]) + parseFloat(countyData[5]) + parseFloat(countyData[6]) + parseFloat(countyData[7]) + parseFloat(countyData[8]) + parseFloat(countyData[9]) + parseFloat(countyData[10]) + parseFloat(countyData[11]) 
+        o.result = offset * electionData.mov
+        o.grads = Math.round(10000 * (gradTotal / eduTotal)) / 10000
+        results.push(JSON.stringify(o))
+      }
+      else { 
+        errors.push("election data missing for fips #" + o.fips + " " + o.name)
+      }
+
+  }
+
+  file.write("data.js", '[' + results.join(',\r')+ ']')
+  file.write("errors.txt",  errors.join('\r\n'))
+
+</script>
+</job>

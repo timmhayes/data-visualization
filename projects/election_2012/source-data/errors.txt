@@ -1,0 +1,162 @@
+election data missing for fips #02013 Aleutians East Borough, Alaska
+election data missing for fips #02016 Aleutians West Census Area, Alaska
+election data missing for fips #02020 Anchorage Municipality, Alaska
+election data missing for fips #02050 Bethel Census Area, Alaska
+election data missing for fips #02060 Bristol Bay Borough, Alaska
+election data missing for fips #02068 Denali Borough, Alaska
+election data missing for fips #02070 Dillingham Census Area, Alaska
+election data missing for fips #02090 Fairbanks North Star Borough, Alaska
+election data missing for fips #02100 Haines Borough, Alaska
+election data missing for fips #02105 Hoonah-Angoon Census Area, Alaska
+election data missing for fips #02110 Juneau City and Borough, Alaska
+election data missing for fips #02122 Kenai Peninsula Borough, Alaska
+election data missing for fips #02130 Ketchikan Gateway Borough, Alaska
+election data missing for fips #02150 Kodiak Island Borough, Alaska
+election data missing for fips #02164 Lake and Peninsula Borough, Alaska
+election data missing for fips #02170 Matanuska-Susitna Borough, Alaska
+election data missing for fips #02180 Nome Census Area, Alaska
+election data missing for fips #02185 North Slope Borough, Alaska
+election data missing for fips #02188 Northwest Arctic Borough, Alaska
+election data missing for fips #02195 Petersburg Census Area, Alaska
+election data missing for fips #02198 Prince of Wales-Hyder Census Area, Alaska
+election data missing for fips #02220 Sitka City and Borough, Alaska
+election data missing for fips #02230 Skagway Municipality, Alaska
+election data missing for fips #02240 Southeast Fairbanks Census Area, Alaska
+election data missing for fips #02261 Valdez-Cordova Census Area, Alaska
+election data missing for fips #02270 Wade Hampton Census Area, Alaska
+election data missing for fips #02275 Wrangell City and Borough, Alaska
+election data missing for fips #02282 Yakutat City and Borough, Alaska
+election data missing for fips #02290 Yukon-Koyukuk Census Area, Alaska
+election data missing for fips #05007 Benton County, Arkansas
+election data missing for fips #15005 Kalawao County, Hawaii
+election data missing for fips #23007 Franklin County, Maine
+election data missing for fips #23017 Oxford County, Maine
+election data missing for fips #23021 Piscataquis County, Maine
+election data missing for fips #25023 Plymouth County, Massachusetts
+election data missing for fips #30111 Yellowstone County, Montana
+election data missing for fips #34013 Essex County, New Jersey
+election data missing for fips #36047 Kings County, New York
+election data missing for fips #36081 Queens County, New York
+election data missing for fips #36119 Westchester County, New York
+election data missing for fips #41051 Multnomah County, Oregon
+election data missing for fips #42029 Chester County, Pennsylvania
+election data missing for fips #47113 Madison County, Tennessee
+election data missing for fips #51760 Richmond city, Virginia
+election data missing for fips #51770 Roanoke city, Virginia
+election data missing for fips #53001 Adams County, Washington
+election data missing for fips #53003 Asotin County, Washington
+election data missing for fips #53005 Benton County, Washington
+election data missing for fips #53007 Chelan County, Washington
+election data missing for fips #53011 Clark County, Washington
+election data missing for fips #53013 Columbia County, Washington
+election data missing for fips #53015 Cowlitz County, Washington
+election data missing for fips #53017 Douglas County, Washington
+election data missing for fips #53019 Ferry County, Washington
+election data missing for fips #53021 Franklin County, Washington
+election data missing for fips #53023 Garfield County, Washington
+election data missing for fips #53025 Grant County, Washington
+election data missing for fips #53027 Grays Harbor County, Washington
+election data missing for fips #53029 Island County, Washington
+election data missing for fips #53031 Jefferson County, Washington
+election data missing for fips #53033 King County, Washington
+election data missing for fips #53035 Kitsap County, Washington
+election data missing for fips #53037 Kittitas County, Washington
+election data missing for fips #53039 Klickitat County, Washington
+election data missing for fips #53041 Lewis County, Washington
+election data missing for fips #53043 Lincoln County, Washington
+election data missing for fips #53045 Mason County, Washington
+election data missing for fips #53047 Okanogan County, Washington
+election data missing for fips #53049 Pacific County, Washington
+election data missing for fips #53051 Pend Oreille County, Washington
+election data missing for fips #53053 Pierce County, Washington
+election data missing for fips #53055 San Juan County, Washington
+election data missing for fips #53057 Skagit County, Washington
+election data missing for fips #53059 Skamania County, Washington
+election data missing for fips #53061 Snohomish County, Washington
+election data missing for fips #53063 Spokane County, Washington
+election data missing for fips #53065 Stevens County, Washington
+election data missing for fips #53067 Thurston County, Washington
+election data missing for fips #53069 Wahkiakum County, Washington
+election data missing for fips #53071 Walla Walla County, Washington
+election data missing for fips #53073 Whatcom County, Washington
+election data missing for fips #53075 Whitman County, Washington
+election data missing for fips #53077 Yakima County, Washington
+election data missing for fips #55081 Monroe County, Wisconsin
+election data missing for fips #72001 Adjuntas Municipio, Puerto Rico
+election data missing for fips #72003 Aguada Municipio, Puerto Rico
+election data missing for fips #72005 Aguadilla Municipio, Puerto Rico
+election data missing for fips #72007 Aguas Buenas Municipio, Puerto Rico
+election data missing for fips #72009 Aibonito Municipio, Puerto Rico
+election data missing for fips #72011 Añasco Municipio, Puerto Rico
+election data missing for fips #72013 Arecibo Municipio, Puerto Rico
+election data missing for fips #72015 Arroyo Municipio, Puerto Rico
+election data missing for fips #72017 Barceloneta Municipio, Puerto Rico
+election data missing for fips #72019 Barranquitas Municipio, Puerto Rico
+election data missing for fips #72021 Bayamón Municipio, Puerto Rico
+election data missing for fips #72023 Cabo Rojo Municipio, Puerto Rico
+election data missing for fips #72025 Caguas Municipio, Puerto Rico
+election data missing for fips #72027 Camuy Municipio, Puerto Rico
+election data missing for fips #72029 Canóvanas Municipio, Puerto Rico
+election data missing for fips #72031 Carolina Municipio, Puerto Rico
+election data missing for fips #72033 Cataño Municipio, Puerto Rico
+election data missing for fips #72035 Cayey Municipio, Puerto Rico
+election data missing for fips #72037 Ceiba Municipio, Puerto Rico
+election data missing for fips #72039 Ciales Municipio, Puerto Rico
+election data missing for fips #72041 Cidra Municipio, Puerto Rico
+election data missing for fips #72043 Coamo Municipio, Puerto Rico
+election data missing for fips #72045 Comerío Municipio, Puerto Rico
+election data missing for fips #72047 Corozal Municipio, Puerto Rico
+election data missing for fips #72049 Culebra Municipio, Puerto Rico
+election data missing for fips #72051 Dorado Municipio, Puerto Rico
+election data missing for fips #72053 Fajardo Municipio, Puerto Rico
+election data missing for fips #72054 Florida Municipio, Puerto Rico
+election data missing for fips #72055 Guánica Municipio, Puerto Rico
+election data missing for fips #72057 Guayama Municipio, Puerto Rico
+election data missing for fips #72059 Guayanilla Municipio, Puerto Rico
+election data missing for fips #72061 Guaynabo Municipio, Puerto Rico
+election data missing for fips #72063 Gurabo Municipio, Puerto Rico
+election data missing for fips #72065 Hatillo Municipio, Puerto Rico
+election data missing for fips #72067 Hormigueros Municipio, Puerto Rico
+election data missing for fips #72069 Humacao Municipio, Puerto Rico
+election data missing for fips #72071 Isabela Municipio, Puerto Rico
+election data missing for fips #72073 Jayuya Municipio, Puerto Rico
+election data missing for fips #72075 Juana Díaz Municipio, Puerto Rico
+election data missing for fips #72077 Juncos Municipio, Puerto Rico
+election data missing for fips #72079 Lajas Municipio, Puerto Rico
+election data missing for fips #72081 Lares Municipio, Puerto Rico
+election data missing for fips #72083 Las Marías Municipio, Puerto Rico
+election data missing for fips #72085 Las Piedras Municipio, Puerto Rico
+election data missing for fips #72087 Loíza Municipio, Puerto Rico
+election data missing for fips #72089 Luquillo Municipio, Puerto Rico
+election data missing for fips #72091 Manatí Municipio, Puerto Rico
+election data missing for fips #72093 Maricao Municipio, Puerto Rico
+election data missing for fips #72095 Maunabo Municipio, Puerto Rico
+election data missing for fips #72097 Mayagüez Municipio, Puerto Rico
+election data missing for fips #72099 Moca Municipio, Puerto Rico
+election data missing for fips #72101 Morovis Municipio, Puerto Rico
+election data missing for fips #72103 Naguabo Municipio, Puerto Rico
+election data missing for fips #72105 Naranjito Municipio, Puerto Rico
+election data missing for fips #72107 Orocovis Municipio, Puerto Rico
+election data missing for fips #72109 Patillas Municipio, Puerto Rico
+election data missing for fips #72111 Peñuelas Municipio, Puerto Rico
+election data missing for fips #72113 Ponce Municipio, Puerto Rico
+election data missing for fips #72115 Quebradillas Municipio, Puerto Rico
+election data missing for fips #72117 Rincón Municipio, Puerto Rico
+election data missing for fips #72119 Río Grande Municipio, Puerto Rico
+election data missing for fips #72121 Sabana Grande Municipio, Puerto Rico
+election data missing for fips #72123 Salinas Municipio, Puerto Rico
+election data missing for fips #72125 San Germán Municipio, Puerto Rico
+election data missing for fips #72127 San Juan Municipio, Puerto Rico
+election data missing for fips #72129 San Lorenzo Municipio, Puerto Rico
+election data missing for fips #72131 San Sebastián Municipio, Puerto Rico
+election data missing for fips #72133 Santa Isabel Municipio, Puerto Rico
+election data missing for fips #72135 Toa Alta Municipio, Puerto Rico
+election data missing for fips #72137 Toa Baja Municipio, Puerto Rico
+election data missing for fips #72139 Trujillo Alto Municipio, Puerto Rico
+election data missing for fips #72141 Utuado Municipio, Puerto Rico
+election data missing for fips #72143 Vega Alta Municipio, Puerto Rico
+election data missing for fips #72145 Vega Baja Municipio, Puerto Rico
+election data missing for fips #72147 Vieques Municipio, Puerto Rico
+election data missing for fips #72149 Villalba Municipio, Puerto Rico
+election data missing for fips #72151 Yabucoa Municipio, Puerto Rico
+election data missing for fips #72153 Yauco Municipio, Puerto Rico
