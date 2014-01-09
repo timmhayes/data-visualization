@@ -2,8 +2,8 @@
 
   /* ~~~~~~~~~~~~~~ establish sizing ~~~~~~~~~~~~~~ */
   var data = json.sort(function (a, b) { return a.pop > b.pop ? -1 : a.pop < b.pop ? 1 : 0 }),
-      padding = { top: 10, right: 200, bottom: 50, left:100 },
-      size =    { height: 600, width: 1000 },
+      padding = { top: 10, right: 0, bottom: 50, left:100 },
+      size =    { height: 600, width: 900 },
       format =  {
 
         number  : d3.format(","),
@@ -97,15 +97,16 @@
 
   var key  = chart.append("g")
               .attr("class", "key")
-              .attr("transform", "translate(" + (size.width-padding.right/2) + "," + padding.top*2 +")"),
+              .attr("transform", "translate(" + (size.width-padding.left) + "," + padding.top +")"),
       keys = key.selectAll("g")
               .data([10000, 100000,500000,1000000 ])
               .enter()
               .append("g")
-              .attr("transform", function(d,i){ return "translate(" + 0 + "," + ((i+1)*30) +")" })
+              .attr("transform", function(d,i){ return "translate(" + 0 + "," + ((i+1)*25) +")" })
 
   key.append("text")
      .text("Population")
+     .attr("y",5)
      .attr("class", "key-title")
 
   keys.append("circle")
