@@ -2,7 +2,7 @@
 
   /* ~~~~~~~~~~~~~~ establish sizing ~~~~~~~~~~~~~~ */
   var data = json.sort(function (a, b) { return a.pop > b.pop ? -1 : a.pop < b.pop ? 1 : 0 }),
-      padding = { top: 10, right: 0, bottom: 50, left:100 },
+      padding = { top: 10, right: 50, bottom: 50, left:100 },
       size =    { height: 600, width: 900 },
       format =  {
 
