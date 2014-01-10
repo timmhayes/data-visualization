@@ -1,16 +1,19 @@
 ﻿
 html {
   background-color: #f8f7f2;
-  font-family: sans-serif;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
 h1 {
-  font-size: 130%;
+  font-size: 42px;
+  font-weight:  300;
   margin: 0 0 20px 0;
   text-align: center;
 }
 
 h2 {
+  font-size: 22px;
+  font-weight:  300;
   margin:0;
   padding:0
 }
@@ -36,16 +39,11 @@ h2 {
   border: 1px #777 solid;
   border-radius: 2px;
   box-shadow: 5px 5px 10px rgba(128,128,128,0.5);
-  font-family: arial, sans-serif;
   padding: 5px;
   position: absolute;
   top: 0;
   visibility: hidden;
   z-index: 10;
-}
-.tooltip h2 {
-  font-size: 1em;
-  margin: 0;
 }
 
 .axis path,
