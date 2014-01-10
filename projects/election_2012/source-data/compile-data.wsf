@@ -49,13 +49,13 @@
         inc : countyData[1],
         pop:  countyData[2],
         snap: Math.round(10000 * (parseFloat(countyData[13])/parseFloat(countyData[12]))) / 10000
-      }
-      , electionData = electionResults[o.fips]
+      },
+      electionData = electionResults[o.fips]
 
       if (electionData && electionData.winner) {
-        var offset = (electionData.winner == "R") ? -1 : 1
-          , eduTotal =  parseFloat(countyData[3])
-          , gradTotal = parseFloat(countyData[4]) + parseFloat(countyData[5]) + parseFloat(countyData[6]) + parseFloat(countyData[7]) + parseFloat(countyData[8]) + parseFloat(countyData[9]) + parseFloat(countyData[10]) + parseFloat(countyData[11]) 
+        var offset = (electionData.winner == "R") ? -1 : 1,
+            eduTotal =  parseFloat(countyData[3]),
+            gradTotal = parseFloat(countyData[4]) + parseFloat(countyData[5]) + parseFloat(countyData[6]) + parseFloat(countyData[7]) + parseFloat(countyData[8]) + parseFloat(countyData[9]) + parseFloat(countyData[10]) + parseFloat(countyData[11]) 
         o.result = offset * electionData.mov
         o.grads = Math.round(10000 * (gradTotal / eduTotal)) / 10000
         results.push(JSON.stringify(o))
