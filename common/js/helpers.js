@@ -6,6 +6,12 @@ var msxml = (function(v) {
   return f;
 })(9);
 
+function here(s) { return (/:/.test(s)?'':here.path)+(s||'') };
+here.fix=function(s) { while (here.fix.r.test(s)) s=s.replace(here.fix.r, ''); return s };
+here.fix.r=/([^\\\/]+[\\{2}\/]\.{2}[\\{2}\/]?)/;
+String.prototype.base=function() {var s=this.replace(/\\/g, '/');return s.substring(0, s.lastIndexOf('/')+1)};
+here.path=(this.WScript?WScript.ScriptFullName:location.href).base();
+
 function GET(url, user, pass) {
   var req=msxml('XMLHTTP');
       req.open('GET', url, false, user, pass);
@@ -22,20 +28,37 @@ function GET(url, user, pass) {
 };
 
 var file = (function() {
-  var io = new ActiveXObject('Scripting.FileSystemObject'),
-      ForReading = 1, 
-      ForWriting = 2
+  function Stream(text, charset) {
+    var stream = new ActiveXObject('ADODB.Stream');
+    stream.CharSet=charset||'utf-8'
+    stream.Open()
+    if (typeof text!='undefined')
+      stream.WriteText([].concat(text).join('\n'))
+    return stream
+  }
   return {
+
     read: function(path) {
-      var file = io.OpenTextFile(path, ForReading, true),
-          text = file.ReadAll()
-      file.Close()
-      return text
+      var io   = new ActiveXObject('Scripting.FileSystemObject'),
+          text = io.OpenTextFile(path, 1),
+          data = text.ReadAll()
+      text.Close()
+
+      if (data.charCodeAt(0) == 255) { // Unicode
+        text = io.OpenTextFile(path, 1, false, -1)
+        data = text.ReadAll()
+        text.Close()
+      }
+
+      if (data.charCodeAt(0) == 239) { // UTF-8
+        data = GET(here(path)).text
+      }
+      return data
     },
-    write: function(path, str){
-      var file = io.OpenTextFile(path, ForWriting, true)
-      file.Write(str)
-      file.Close()
+
+    write: function(path, str, charset){
+      Stream(str, charset).SaveToFile(path, 2);
     }
+
   }
 })()

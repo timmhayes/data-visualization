@@ -1,4 +1,4 @@
-election data missing for fips #02013 Aleutians East Borough, Alaska
+Ôªøelection data missing for fips #02013 Aleutians East Borough, Alaska
 election data missing for fips #02016 Aleutians West Census Area, Alaska
 election data missing for fips #02020 Anchorage Municipality, Alaska
 election data missing for fips #02050 Bethel Census Area, Alaska
@@ -87,30 +87,30 @@ election data missing for fips #72003 Aguada Municipio, Puerto Rico
 election data missing for fips #72005 Aguadilla Municipio, Puerto Rico
 election data missing for fips #72007 Aguas Buenas Municipio, Puerto Rico
 election data missing for fips #72009 Aibonito Municipio, Puerto Rico
-election data missing for fips #72011 AÒasco Municipio, Puerto Rico
+election data missing for fips #72011 A√±asco Municipio, Puerto Rico
 election data missing for fips #72013 Arecibo Municipio, Puerto Rico
 election data missing for fips #72015 Arroyo Municipio, Puerto Rico
 election data missing for fips #72017 Barceloneta Municipio, Puerto Rico
 election data missing for fips #72019 Barranquitas Municipio, Puerto Rico
-election data missing for fips #72021 BayamÛn Municipio, Puerto Rico
+election data missing for fips #72021 Bayam√≥n Municipio, Puerto Rico
 election data missing for fips #72023 Cabo Rojo Municipio, Puerto Rico
 election data missing for fips #72025 Caguas Municipio, Puerto Rico
 election data missing for fips #72027 Camuy Municipio, Puerto Rico
-election data missing for fips #72029 CanÛvanas Municipio, Puerto Rico
+election data missing for fips #72029 Can√≥vanas Municipio, Puerto Rico
 election data missing for fips #72031 Carolina Municipio, Puerto Rico
-election data missing for fips #72033 CataÒo Municipio, Puerto Rico
+election data missing for fips #72033 Cata√±o Municipio, Puerto Rico
 election data missing for fips #72035 Cayey Municipio, Puerto Rico
 election data missing for fips #72037 Ceiba Municipio, Puerto Rico
 election data missing for fips #72039 Ciales Municipio, Puerto Rico
 election data missing for fips #72041 Cidra Municipio, Puerto Rico
 election data missing for fips #72043 Coamo Municipio, Puerto Rico
-election data missing for fips #72045 ComerÌo Municipio, Puerto Rico
+election data missing for fips #72045 Comer√≠o Municipio, Puerto Rico
 election data missing for fips #72047 Corozal Municipio, Puerto Rico
 election data missing for fips #72049 Culebra Municipio, Puerto Rico
 election data missing for fips #72051 Dorado Municipio, Puerto Rico
 election data missing for fips #72053 Fajardo Municipio, Puerto Rico
 election data missing for fips #72054 Florida Municipio, Puerto Rico
-election data missing for fips #72055 Gu·nica Municipio, Puerto Rico
+election data missing for fips #72055 Gu√°nica Municipio, Puerto Rico
 election data missing for fips #72057 Guayama Municipio, Puerto Rico
 election data missing for fips #72059 Guayanilla Municipio, Puerto Rico
 election data missing for fips #72061 Guaynabo Municipio, Puerto Rico
@@ -120,35 +120,35 @@ election data missing for fips #72067 Hormigueros Municipio, Puerto Rico
 election data missing for fips #72069 Humacao Municipio, Puerto Rico
 election data missing for fips #72071 Isabela Municipio, Puerto Rico
 election data missing for fips #72073 Jayuya Municipio, Puerto Rico
-election data missing for fips #72075 Juana DÌaz Municipio, Puerto Rico
+election data missing for fips #72075 Juana D√≠az Municipio, Puerto Rico
 election data missing for fips #72077 Juncos Municipio, Puerto Rico
 election data missing for fips #72079 Lajas Municipio, Puerto Rico
 election data missing for fips #72081 Lares Municipio, Puerto Rico
-election data missing for fips #72083 Las MarÌas Municipio, Puerto Rico
+election data missing for fips #72083 Las Mar√≠as Municipio, Puerto Rico
 election data missing for fips #72085 Las Piedras Municipio, Puerto Rico
-election data missing for fips #72087 LoÌza Municipio, Puerto Rico
+election data missing for fips #72087 Lo√≠za Municipio, Puerto Rico
 election data missing for fips #72089 Luquillo Municipio, Puerto Rico
-election data missing for fips #72091 ManatÌ Municipio, Puerto Rico
+election data missing for fips #72091 Manat√≠ Municipio, Puerto Rico
 election data missing for fips #72093 Maricao Municipio, Puerto Rico
 election data missing for fips #72095 Maunabo Municipio, Puerto Rico
-election data missing for fips #72097 Mayag¸ez Municipio, Puerto Rico
+election data missing for fips #72097 Mayag√ºez Municipio, Puerto Rico
 election data missing for fips #72099 Moca Municipio, Puerto Rico
 election data missing for fips #72101 Morovis Municipio, Puerto Rico
 election data missing for fips #72103 Naguabo Municipio, Puerto Rico
 election data missing for fips #72105 Naranjito Municipio, Puerto Rico
 election data missing for fips #72107 Orocovis Municipio, Puerto Rico
 election data missing for fips #72109 Patillas Municipio, Puerto Rico
-election data missing for fips #72111 PeÒuelas Municipio, Puerto Rico
+election data missing for fips #72111 Pe√±uelas Municipio, Puerto Rico
 election data missing for fips #72113 Ponce Municipio, Puerto Rico
 election data missing for fips #72115 Quebradillas Municipio, Puerto Rico
-election data missing for fips #72117 RincÛn Municipio, Puerto Rico
-election data missing for fips #72119 RÌo Grande Municipio, Puerto Rico
+election data missing for fips #72117 Rinc√≥n Municipio, Puerto Rico
+election data missing for fips #72119 R√≠o Grande Municipio, Puerto Rico
 election data missing for fips #72121 Sabana Grande Municipio, Puerto Rico
 election data missing for fips #72123 Salinas Municipio, Puerto Rico
-election data missing for fips #72125 San Germ·n Municipio, Puerto Rico
+election data missing for fips #72125 San Germ√°n Municipio, Puerto Rico
 election data missing for fips #72127 San Juan Municipio, Puerto Rico
 election data missing for fips #72129 San Lorenzo Municipio, Puerto Rico
-election data missing for fips #72131 San Sebasti·n Municipio, Puerto Rico
+election data missing for fips #72131 San Sebasti√°n Municipio, Puerto Rico
 election data missing for fips #72133 Santa Isabel Municipio, Puerto Rico
 election data missing for fips #72135 Toa Alta Municipio, Puerto Rico
 election data missing for fips #72137 Toa Baja Municipio, Puerto Rico
