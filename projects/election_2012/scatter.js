@@ -198,7 +198,7 @@
   /* ~~~~~~~~~~~~~~ other helpers ~~~~~~~~~~~~~~ */
 
   function filter(query){
-    var clean = query.replace(/[^0-9a-zA-Z]+/, ""),
+    var clean = query.replace(/[^0-9a-zA-Z ÁÉÍÓÚ-áéíóu-ñÑ]+/, ""),
         re = new RegExp(clean, "i")
     chart.selectAll("svg>circle").attr("class", function(d){
       return d.name.match(re)? "match": "nomatch"
