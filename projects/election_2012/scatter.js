@@ -33,8 +33,8 @@
       nav.attr("class", "nav")
         .selectAll("li")
         .data([
-            { title: "By Education",  type: "grads", tickFormat: "%",  description: "Percentage of people over 25 years old with a 4-year college degree or higher" },
             { title: "By Income",     type: "inc",   tickFormat: "$,", description: "Median household income of county" },
+            { title: "By Education",  type: "grads", tickFormat: "%",  description: "Percentage of people over 25 years old with a 4-year college degree or higher" },
             { title: "By Welfare",    type: "snap",  tickFormat: "%,", description: "Percentage of households with cash public assistance or food stamps/SNAP in the last 12 months" },
             { title: "By Population", type: "pop",   tickFormat: ",",  description: "Total population of county" }
         ])
