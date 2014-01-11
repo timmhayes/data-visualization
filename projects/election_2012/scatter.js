@@ -79,6 +79,16 @@
     .attr("x", 0 - (size.height / 2) - 20)
     .attr("y", -50)
     .text("Margin of victory"),
+  
+  dividerY = (size.height - padding.top - padding.bottom)/2 + padding.top
+  dividerLine = chart.append("line")
+    .attr("x1", padding.left)
+    .attr("y1", dividerY)
+    .attr("x2", size.width - padding.right)
+    .attr("y2", dividerY)
+    .attr("stroke-width", 0.5)
+    .attr("stroke", "black")
+    .attr("stroke-dasharray", "5,5"),
 
   arrowLine = "M25,0L45,30L35,30L25,150,L15,30L5,30Z"
   arrowUp = chart.append("path")
@@ -165,10 +175,11 @@
       .append("circle")
       .on(mouseEvents)
       .style("fill", function (d, i) {
-        var alpha = 0.8,
+        var alpha = 0.7,
             intensity = Math.max(50, 85  - Math.abs(d.result))
-        if (d.result > 0) return "hsla(243,100%," + intensity + "%, " + alpha + ")"
-        else return "hsla(0,100%," + intensity + "%, " + alpha + ")"
+        if (d.result > 0)       return "hsla(243,100%," + intensity + "%, " + alpha + ")"
+        else if (d.result == 0) return "rgba(240,240,240," + alpha + ")"
+        else                    return "hsla(0,100%," + intensity + "%, " + alpha + ")"
       })
       .attr("stroke", "black")
       .attr("stroke-width", 0.8)
