@@ -20,9 +20,21 @@
   "B15002_018E", // 10 <variable name = "B15002_018E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Male:!!Doctorate degree </variable>
   "B15002_035E", // 11 <variable name = "B15002_035E" concept="B15002.  Sex by Educational Attainment for the Population 25 Years and over"> Female:!!Doctorate degree </variable>
   "B19058_001E", // 12 <variable name = "B19058_001E" concept="B19058.  Public Assistance Income or Food Stamps/SNAP in the Past 12 Months for Households"> Total: </variable>
-  "B19058_002E"  // 13 <variable name = "B19058_002E" concept="B19058.  Public Assistance Income or Food Stamps/SNAP in the Past 12 Months for Households"> With cash public assistance or Food Stamps/SNAP </variable>    
-                 // 14 state code
-                 // 15 county code [add with above to get fips]
+  "B19058_002E", // 13 <variable name = "B19058_002E" concept="B19058.  Public Assistance Income or Food Stamps/SNAP in the Past 12 Months for Households"> With cash public assistance or Food Stamps/SNAP </variable>
+  "B02001_001E", // 14 <variable name = "B02001_001E" concept="B02001.  Race"> Total: </variable>
+  "B02001_002E", // 15 <variable name = "B02001_002E" concept="B02001.  Race"> White alone </variable>
+  "B02001_003E", // 16 <variable name = "B02001_003E" concept="B02001.  Race"> Black or African American alone </variable>
+  "B02001_004E", // 17 <variable name = "B02001_004E" concept="B02001.  Race"> American Indian and Alaska Native alone </variable>
+  "B02001_005E", // 18 <variable name = "B02001_005E" concept="B02001.  Race"> Asian alone </variable>
+  "B02001_006E", // 19 <variable name = "B02001_006E" concept="B02001.  Race"> Native Hawaiian and Other Pacific Islander alone </variable>
+  "B02001_007E", // 20 <variable name = "B02001_007E" concept="B02001.  Race"> Some other race alone </variable>
+  "B02001_008E" // 21 <variable name = "B02001_008E" concept="B02001.  Race"> Two or more races: </variable>
+  //"B02001_009E", // 22 <variable name = "B02001_009E" concept="B02001.  Race"> Two or more races:!!Two races including Some other race </variable>
+  //"B02001_010E"  // 23 <variable name = "B02001_010E" concept="B02001.  Race"> Two or more races:!!Two races excluding Some other race, and three or more races </variable>
+
+
+                 // 24 state code
+                 // 25 county code [add with above to get fips]
 ]
 
   if (false) { // set true to refresh data; otherwise used cached copy
@@ -42,27 +54,32 @@
   for (var i = 1; i < censusJSON.length; i++) {
 
     var countyData = censusJSON[i]
+    function data(row) { return parseFloat(countyData[row]) }
 
     var o = {
         fips: countyData[countyData.length-2] + countyData[countyData.length-1],
         name: countyData[0],
         inc : countyData[1],
         pop:  countyData[2],
-        snap: Math.round(10000 * (parseFloat(countyData[13])/parseFloat(countyData[12]))) / 10000
+        snap: Math.round(10000 * (data(13)/data(12))) / 10000,
+        min:  Math.round(10000 * (1 - data(15)/data(14))) / 10000
       },
-      electionData = electionResults[o.fips]
+    electionData = electionResults[o.fips],
+    raceAdded = data(15) + data(16) + data(17) + data(18) + data(19) + data(20) + data(21)
+    raceReported = data(14)
+    if (raceAdded != raceReported) errors.push("minoity numbers not adding up for fips #" + o.fips + ": added to " + raceAdded + " / reported as " + raceReported + " - margin of difference = " + raceAdded / raceReported)
 
-      if (electionData && electionData.winner) {
-        var offset = (electionData.winner == "R") ? -1 : 1,
-            eduTotal =  parseFloat(countyData[3]),
-            gradTotal = parseFloat(countyData[4]) + parseFloat(countyData[5]) + parseFloat(countyData[6]) + parseFloat(countyData[7]) + parseFloat(countyData[8]) + parseFloat(countyData[9]) + parseFloat(countyData[10]) + parseFloat(countyData[11]) 
-        o.result = offset * electionData.mov
-        o.grads = Math.round(10000 * (gradTotal / eduTotal)) / 10000
-        results.push(JSON.stringify(o))
-      }
-      else { 
-        errors.push("election data missing for fips #" + o.fips + " " + o.name)
-      }
+    if (electionData && electionData.winner) {
+      var offset = (electionData.winner == "R") ? -1 : 1,
+          eduTotal =  parseFloat(countyData[3]),
+          gradTotal = data(4) + data(5) + data(6) + data(7) + data(8) + data(9) + data(10) + data(11)
+      o.result = offset * electionData.mov
+      o.grads = Math.round(10000 * (gradTotal / eduTotal)) / 10000
+      results.push(JSON.stringify(o))
+    }
+    else {
+      errors.push("election data missing for fips #" + o.fips + " " + o.name)
+    }
 
   }
 
