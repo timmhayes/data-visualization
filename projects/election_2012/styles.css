@@ -37,8 +37,9 @@ h2 {
 .tooltip {
   background-color: #fff;
   border: 1px #777 solid;
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(128,128,128,0.5);
+  opacity: 0.9;
   padding: 10px;
   position: absolute;
   top: 0;
