@@ -28,7 +28,7 @@
   "B02001_005E", // 18 <variable name = "B02001_005E" concept="B02001.  Race"> Asian alone </variable>
   "B02001_006E", // 19 <variable name = "B02001_006E" concept="B02001.  Race"> Native Hawaiian and Other Pacific Islander alone </variable>
   "B02001_007E", // 20 <variable name = "B02001_007E" concept="B02001.  Race"> Some other race alone </variable>
-  "B02001_008E" // 21 <variable name = "B02001_008E" concept="B02001.  Race"> Two or more races: </variable>
+  "B02001_008E"  // 21 <variable name = "B02001_008E" concept="B02001.  Race"> Two or more races: </variable>
   //"B02001_009E", // 22 <variable name = "B02001_009E" concept="B02001.  Race"> Two or more races:!!Two races including Some other race </variable>
   //"B02001_010E"  // 23 <variable name = "B02001_010E" concept="B02001.  Race"> Two or more races:!!Two races excluding Some other race, and three or more races </variable>
 
