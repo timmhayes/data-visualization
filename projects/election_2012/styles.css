@@ -112,6 +112,17 @@ h2 {
   shape-rendering: crispedges;
 }
 
+.label-victor {
+  font-size:  14px;
+  font-weight:  bold;
+}
+.label-obama {
+  fill: blue;
+}
+.label-romney {
+  fill: red;
+}
+
 circle {
   visibility: visible;
   opacity: 1;
@@ -126,4 +137,9 @@ circle.nomatch {
   visibility: hidden;
   opacity: 0;
 }
+
+path.loess {
+  stroke: #000;
+  stroke-width: 2px;
+  fill: none;
 }
