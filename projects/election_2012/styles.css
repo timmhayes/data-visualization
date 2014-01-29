@@ -68,10 +68,6 @@ h2 {
 .labelX {
   text-anchor: middle;
 }
-.arrow {
-  stroke-width: 2px;
-  stroke: #ccc;
-  fill: none;
 }
 
 .nav {

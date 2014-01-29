@@ -36,11 +36,11 @@ d3.json("data.js", function (json) {
     nav.attr("class", "nav")
       .selectAll("li")
       .data([
-        { title: "Racially Diverse", type: "min", tickFormat: "%,", description: "Percentage of minority (non-white) population", lowlabel: "white", highlabel: "minority" },
-        { title: "Wealthy", type: "inc", tickFormat: "$,", description: "Median household income of county", lowlabel: "low-income", highlabel: "high-income" },
-        { title: "Educated", type: "grads", tickFormat: "%", description: "Percentage of people over 25 years old with a 4-year college degree or higher", lowlabel: "less-educated", highlabel: "more-educated" },
-        { title: "On Welfare", type: "snap", tickFormat: "%,", description: "Percentage of households with cash public assistance or food stamps/SNAP in the last 12 months", lowlabel: "non welfare", highlabel: "welfare" },
-        { title: "Urban", type: "pop", tickFormat: ",", description: "Total population of county", lowlabel: "small county", highlabel: "large county" }
+        { title: "Racially Diverse", type: "min", tickFormat: "%,", description: "Percentage of minority (non-white) population" },
+        { title: "Wealthy", type: "inc", tickFormat: "$,", description: "Median household income of county" },
+        { title: "Educated", type: "grads", tickFormat: "%", description: "Percentage of people over 25 years old with a 4-year college degree or higher" },
+        { title: "On Welfare", type: "snap", tickFormat: "%,", description: "Percentage of households with cash public assistance or food stamps/SNAP in the last 12 months" },
+        { title: "Urban", type: "pop", tickFormat: ",", description: "Total population of county" }
       ])
       .enter()
       .append("li")
