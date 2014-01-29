@@ -113,14 +113,17 @@ h2 {
 }
 
 circle {
-  transition: opacity 0.5s;
-  -webkit-transition: opacity 0.5s
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 circle.match {
-  opacity: 1;
-  visibility: visible;
+  -moz-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
 }
 circle.nomatch {
-  opacity: 0;
   visibility: hidden;
+  opacity: 0;
+}
 }
