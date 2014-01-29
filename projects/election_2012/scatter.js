@@ -3,9 +3,9 @@
 d3.json("data.js", function (json) {
 
     /* ~~~~~~~~~~~~~~ establish sizing ~~~~~~~~~~~~~~ */
-    var data = json.sort(function (a, b) { return a.pop > b.pop ? -1 : a.pop < b.pop ? 1 : 0 }),
+    var data    = json.sort(function (a, b) { return a.pop > b.pop ? -1 : a.pop < b.pop ? 1 : 0 }),
         padding = { top: 20, right: 130, bottom: 50, left: 100 },
-        size =    { height: 500, width: 900 },
+        size    = { height: 500, width: 900 },
 
         format =  {
 
@@ -86,14 +86,11 @@ d3.json("data.js", function (json) {
 
     dividerY = scales.y(0),
     dividerLine = chart.append("line")
+      .attr("class", "divider")
       .attr("x1", padding.left)
       .attr("y1", dividerY)
       .attr("x2", size.width - padding.right)
       .attr("y2", dividerY)
-      .attr("stroke-width", 0.5)
-      .attr("stroke", "black")
-      .attr("stroke-dasharray", "5,5")
-
     chart.append("text")
       .attr("x", size.width - padding.right)
       .attr("y", dividerY - 5)
@@ -112,24 +109,21 @@ d3.json("data.js", function (json) {
 
     /* ~~~~~~~~~~~~~~ population key */
 
-    var key = chart.append("g")
-              .attr("class", "key")
-              .attr("transform", "translate(" + (size.width - padding.left) + "," + padding.top + ")"),
-      keys = key.selectAll("g")
-              .data([10000, 100000, 500000, 1000000])
-              .enter()
-              .append("g")
-              .attr("transform", function (d, i) { return "translate(" + 0 + "," + ((i + 1) * 25) + ")" })
+    var key  = chart.append("g")
+                .attr("class", "key")
+                .attr("transform", "translate(" + (size.width - padding.left) + "," + padding.top + ")"),
+        keys = key.selectAll("g")
+                .data([10000, 100000, 500000, 1000000])
+                .enter()
+                .append("g")
+                .attr("transform", function (d, i) { return "translate(" + 0 + "," + ((i + 1) * 25) + ")" })
 
     key.append("text")
-     .text("County Size")
-     .attr("y", 5)
-     .attr("class", "key-title")
+      .attr("class", "key-title")
+      .text("County Size")
+      .attr("y", 5)
 
     keys.append("circle")
-      .attr("stroke", "black")
-      .attr("stroke-width", 1)
-      .attr("fill", "rgba(128,128, 128, 0.2)")
       .attr("r", function (d) { return scales.radius(d) })
 
     keys.append("text")
@@ -142,6 +136,7 @@ d3.json("data.js", function (json) {
     function draw(selectionData) {
 
       var dataColumn = selectionData.type
+
       scales.x = d3.scale.linear()//pow().exponent(0.2)
         .domain(d3.extent(data, function (d) { return parseFloat(d[dataColumn]) }))
         .range([padding.left, size.width - padding.right])
@@ -166,7 +161,7 @@ d3.json("data.js", function (json) {
         },
         "mousemove": function (d) {
           tooltip
-           .style("top", (d3.event.pageY - 10) + "px")
+           .style("top",  (d3.event.pageY - 10) + "px")
            .style("left", (d3.event.pageX + 10) + "px")
         },
         "mouseout": function () {
@@ -188,9 +183,9 @@ d3.json("data.js", function (json) {
         .style("fill", function (d, i) {
           var alpha = 0.7,
               intensity = Math.max(50, 85 - Math.abs(d.result))
-          if (d.result > 0) return "hsla(243,100%," + intensity + "%, " + alpha + ")"
+          if      (d.result >  0) return "hsla(243,100%," + intensity + "%, " + alpha + ")"
           else if (d.result == 0) return "rgba(240,240,240," + alpha + ")"
-          else return "hsla(0,100%," + intensity + "%, " + alpha + ")"
+          else                    return "hsla(0,100%,"   + intensity + "%, " + alpha + ")"
         })
         .attr("stroke", "black")
         .attr("stroke-width", 0.8)

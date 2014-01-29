@@ -68,6 +68,11 @@ h2 {
 .labelX {
   text-anchor: middle;
 }
+
+.divider {
+ stroke-width:  0.5;
+ stroke: #000;
+ stroke-dasharray: 5,5;
 }
 
 .nav {
@@ -106,6 +111,11 @@ h2 {
 .key text {
   font-family: sans-serif;
   shape-rendering: crispedges;
+}
+.key circle {
+  stroke: black;
+  stroke-width:  1;
+  fill: rgba(128,128, 128, 0.2);
 }
 
 .label-victor {
