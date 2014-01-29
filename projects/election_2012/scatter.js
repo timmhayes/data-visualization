@@ -32,7 +32,7 @@ d3.json("data.js", function (json) {
 
     /* ~~~~~~~~~~~~~~ add interactive buttons ~~~~~~~~~~~~~~ */
 
-    var nav = d3.select(".wrapper").append("ul")
+    var nav = d3.select(".chartwrapper").append("ul")
     nav.attr("class", "nav")
       .selectAll("li")
       .data([
@@ -59,7 +59,7 @@ d3.json("data.js", function (json) {
 
     /* ~~~~~~~~~~~~~~ intialize chart ~~~~~~~~~~~~~~ */
 
-    var chart = d3.select(".wrapper").append("svg")
+    var chart = d3.select(".chartwrapper").append("svg")
           .attr("class", "chart")
           .attr("width", size.width)
           .attr("height", size.height),
