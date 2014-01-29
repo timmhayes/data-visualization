@@ -205,6 +205,26 @@ d3.json("data.js", function(json) {
     chart.selectAll(".labelX").text(description)
 
   }
+      /* ~~~~~~~~~~~~~~ Loess curve calculation */
+
+      var line = d3.svg.line()
+            .x(function (d) { return scales.x(d[0]); })
+            .y(function (d) { return scales.y(d[1]); }),
+          clone = data.slice(0).sort(function (a, b) { return a[dataColumn] - b[dataColumn] }),
+          resultMap = clone.map(function (d) { return d.result; }),
+          dataMap = clone.map(function (d) { return d[dataColumn] }),
+          path = chart.selectAll("path.loess")
+            .data(function (d) {
+              return [d3.zip(dataMap, loess(dataMap, resultMap, 0.2))]
+            })
+
+      path.enter()
+        .append("path")
+        .attr("class", "loess")
+
+      path.transition().attr("d", line)
+
+    }
 
   /* ~~~~~~~~~~~~~~ other helpers ~~~~~~~~~~~~~~ */
 
