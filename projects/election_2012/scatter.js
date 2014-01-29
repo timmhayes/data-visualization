@@ -2,13 +2,12 @@
 
 d3.json("data.js", function(json) {
 
-  /* ~~~~~~~~~~~~~~ establish sizing ~~~~~~~~~~~~~~ */
-      padding = { top: 10, right: 50, bottom: 50, left:100 },
-      size =    { height: 600, width: 900 },
       format =  {
 
+      padding = { top: 20, right: 130, bottom: 50, left: 100 },
         number  : d3.format(","),
         percent : d3.format(",p")
+      size = { height: 500, width: 900 },
 
       },
 
