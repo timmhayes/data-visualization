@@ -32,10 +32,11 @@ d3.json("data.js", function(json) {
   nav.attr("class", "nav")
         .selectAll("li")
         .data([
-            { title: "By Income",     type: "inc",   tickFormat: "$,", description: "Median household income of county" },
-            { title: "By Education",  type: "grads", tickFormat: "%",  description: "Percentage of people over 25 years old with a 4-year college degree or higher" },
-            { title: "By Welfare",    type: "snap",  tickFormat: "%,", description: "Percentage of households with cash public assistance or food stamps/SNAP in the last 12 months" },
-            { title: "By Population", type: "pop",   tickFormat: ",",  description: "Total population of county" }
+            { title: "Racially Diverse", type: "min", tickFormat: "%,", description: "Percentage of minority (non-white) population", lowlabel: "white", highlabel: "minority" },
+            { title: "Wealthy", type: "inc", tickFormat: "$,", description: "Median household income of county", lowlabel: "low-income", highlabel: "high-income" },
+            { title: "Educated", type: "grads", tickFormat: "%", description: "Percentage of people over 25 years old with a 4-year college degree or higher", lowlabel: "less-educated", highlabel: "more-educated" },
+            { title: "On Welfare", type: "snap", tickFormat: "%,", description: "Percentage of households with cash public assistance or food stamps/SNAP in the last 12 months", lowlabel: "non welfare", highlabel: "welfare" },
+            { title: "Urban", type: "pop", tickFormat: ",", description: "Total population of county", lowlabel: "small county", highlabel: "large county" }
         ])
         .enter()
         .append("li")
@@ -49,7 +50,7 @@ d3.json("data.js", function(json) {
 
   nav.append("li")
         .append("input")
-        .attr("placeholder", "search county name")
+        .attr("placeholder", "search for county/state")
         .on("keyup", function(d) { filter(this.value) })
 
   /* ~~~~~~~~~~~~~~ intialize chart ~~~~~~~~~~~~~~ */
@@ -114,7 +115,7 @@ d3.json("data.js", function(json) {
               .attr("transform", function(d, i) { return "translate(" + 0 + "," + ((i + 1) * 25) + ")" })
 
   key.append("text")
-     .text("Population")
+     .text("County Size")
      .attr("y", 5)
      .attr("class", "key-title")
 
@@ -149,6 +150,7 @@ d3.json("data.js", function(json) {
                 ["Population: "               + format.number(d.pop),
                  "College grads: "            + Math.round(d.grads * 10000)/100 + "%", // float issues with d3 percent
                  "Median household income: $" + format.number(d.inc),
+                 "Minories: " + Math.round(d.min * 10000) / 100 + "%",
                  "Welfare recipents: "        + Math.round(d.snap * 10000)/100 + "%", 
                  ((d.result > 0)? "Obama":"Romney") + "'s margin of victory: " + Math.abs(d.result) +"%"
                 ].join("<br/>"))
