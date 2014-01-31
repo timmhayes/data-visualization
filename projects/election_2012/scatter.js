@@ -2,6 +2,24 @@
 
 d3.json("data.js", function (json) {
 
+  var filters = [
+        { title: "Racially Diverse", type: "min", tickFormat: "%,", description: "Percentage of minority (non-white) population" },
+        { title: "Wealthy", type: "inc", tickFormat: "$,", description: "Median household income of county" },
+        { title: "Educated", type: "grads", tickFormat: "%", description: "Percentage of people over 25 years old with a 4-year college degree or higher" },
+        { title: "On Welfare", type: "snap", tickFormat: "%,", description: "Percentage of households with cash public assistance or food stamps/SNAP in the last 12 months" },
+        { title: "Urban", type: "pop", tickFormat: ",", description: "Total population of county" }
+  ]
+
+  if (window.Worker) {
+    // offload loess number crunching to web worker
+    var loessWorker = new Worker("loess-webworker.js")
+    loessWorker.addEventListener("message", function (e) {
+      filters.forEach(function(filter){
+        if (filter.type==e.data.type) filter.loessCache = e.data.loess
+      })
+    }, false)
+    loessWorker.postMessage({ "filters": filters, "json": json })
+  }
     /* ~~~~~~~~~~~~~~ establish sizing ~~~~~~~~~~~~~~ */
     var data    = json.sort(function (a, b) { return a.pop > b.pop ? -1 : a.pop < b.pop ? 1 : 0 }),
         padding = { top: 20, right: 130, bottom: 50, left: 100 },
@@ -211,19 +229,24 @@ d3.json("data.js", function (json) {
       axisYElement.call(yAxis)
       chart.selectAll(".labelX").text(selectionData.description)
 
+    /* ~~~~~~~~~~~~~~ Loess curve calculation */
 
-      /* ~~~~~~~~~~~~~~ Loess curve calculation */
+    setTimeout(function(){
 
       var line = d3.svg.line()
-            .x(function (d) { return scales.x(d[0]); })
-            .y(function (d) { return scales.y(d[1]); }),
-          clone = data.slice(0).sort(function (a, b) { return a[dataColumn] - b[dataColumn] }),
-          resultMap = clone.map(function (d) { return d.result; }),
-          dataMap = clone.map(function (d) { return d[dataColumn] }),
-          path = chart.selectAll("path.loess")
-            .data(function (d) {
-              return [d3.zip(dataMap, loess(dataMap, resultMap, 0.2))]
-            })
+                    .x(function (d) { return scales.x(d[0]); })
+                    .y(function (d) { return scales.y(d[1]); })
+      if (!filter.loessCache) {
+        // If Worker isn't available or hasn't cached it, cache it here
+        var clone = data.slice(0).sort(function (a, b) { return a[dataColumn] - b[dataColumn] })
+        filter.loessCache = (function () {
+          var resultMap = clone.map(function (d) { return d.result; }),
+              dataMap   = clone.map(function (d) { return d[dataColumn] })
+          return [d3.zip(dataMap, loess(dataMap, resultMap, 0.2))]
+        })()
+      }
+      var path = chart.selectAll("path.loess")
+                  .data(filter.loessCache)
 
       path.enter()
         .append("path")
@@ -231,7 +254,7 @@ d3.json("data.js", function (json) {
 
       path.transition().attr("d", line)
 
-    }
+    }, 1000)
 
     /* ~~~~~~~~~~~~~~ other helpers ~~~~~~~~~~~~~~ */
 
