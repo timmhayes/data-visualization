@@ -2,13 +2,14 @@
 
 d3.json("data.js", function (json) {
 
-  var filters = [
+  var timeout,    // reference for loess timeout in draw function
+      filters = [
         { title: "Racially Diverse", type: "min", tickFormat: "%,", description: "Percentage of minority (non-white) population" },
         { title: "Wealthy", type: "inc", tickFormat: "$,", description: "Median household income of county" },
         { title: "Educated", type: "grads", tickFormat: "%", description: "Percentage of people over 25 years old with a 4-year college degree or higher" },
         { title: "On Welfare", type: "snap", tickFormat: "%,", description: "Percentage of households with cash public assistance or food stamps/SNAP in the last 12 months" },
         { title: "Urban", type: "pop", tickFormat: ",", description: "Total population of county" }
-  ]
+      ]
 
   if (window.Worker) {
     // offload loess number crunching to web worker
@@ -227,8 +228,8 @@ d3.json("data.js", function (json) {
 
 
     /* ~~~~~~~~~~~~~~ Loess curve calculation */
-
-    setTimeout(function(){
+    clearTimeout(timeout)
+    timeout = setTimeout(function(){
 
       var line = d3.svg.line()
                     .x(function (d) { return scales.x(d[0]); })
@@ -249,7 +250,8 @@ d3.json("data.js", function (json) {
         .append("path")
         .attr("class", "loess")
 
-      path.transition().attr("d", line)
+      path.transition()
+        .attr("d", line)
 
     }, 1000)
 
