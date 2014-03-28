@@ -1,0 +1,158 @@
+﻿
+<job>
+<script src="../../../common/wsh-libs/helpers.js"/>
+<script src="../../../common/wsh-libs/json2.js" /> <!-- Not supported in JScript 5.7 with WSH-->
+
+<script>
+
+  var ie = new ActiveXObject("InternetExplorer.Application")
+  var log = []
+  var cached = {      // set false to requery website, otherwise use cached version
+        pagelist:     true,
+        casualtylist: true,
+        details:      true
+  }
+
+  function extractAll(html, selector, from) {
+    ie.navigate("about:blank")
+    while (ie.Busy) { WScript.Sleep(100) }
+    var doc = ie.Document
+
+    try {
+      ie.Document.open()
+      ie.Document.write(html)
+      ie.Document.close()
+    }
+    catch(e) {
+      alert(typeof ie.Document.write)
+    }
+
+    var test = 0
+    while (ie.Busy) {
+      WScript.Sleep(100) /* wait */
+      test++
+      file.write('go.txt', test)
+    }
+    var c = doc.querySelectorAll(selector)
+    for (var i = 0; i < c.length; i++) from(c[i], i)
+  }
+
+  if (!cached.pagelist) {
+    var seed = GET("http://apps.washingtonpost.com/national/fallen/dates/2004/")
+    var pages = []
+    extractAll(seed.text, '#timeline_container [title="Click to see casualties"]', function (link) {
+      var totalCasualties = parseFloat(link.querySelector(".count_number").innerHTML),
+          totalPages = Math.ceil(totalCasualties / 96),
+          href = link.getAttribute("href"),
+          a = href.split("/"),
+          year = a[a.length - 2]
+
+      if (year > 0) {
+        for (var i = 0; i < totalPages; i++) {
+          pages.push("http://apps.washingtonpost.com" + href + "?page=" + (i + 1))
+        }
+      }
+    })
+    pages.sort()
+    file.write("cached-pagelist.js", JSON.stringify(pages))
+  }
+  var list = JSON.parse(file.read("cached-pagelist.js"))
+
+
+  if (!cached.casualtylist) {
+    var casualties = []
+    for ( var i = 0; i < list.length; i++ ) {
+      var url = list[i],
+          text = GET(url).text
+      log.push('~~~~~ '+ url)
+      file.write("test.txt", url)
+      try {
+        extractAll(text, '.fallen_anchor', function (casualty) {
+          log.push('  '+ casualty.getAttribute("href"))
+          casualties.push("http://apps.washingtonpost.com" + casualty.getAttribute("href"))
+        })
+      } catch (e) {
+        log.push('!!! FAILED ON '+ url + " : " + e.description)
+      }
+    }
+    file.write("cached-casualtylist.js", JSON.stringify(casualties))
+  }
+  var casualtyList = JSON.parse(file.read("cached-casualtylist.js"))
+
+  if (!cached.details) {
+    var io   = new ActiveXObject('Scripting.FileSystemObject'),
+    appendlog = io.OpenTextFile("appended-temp.txt", 8, true)
+    
+    var casualtyDetails = []
+    /*
+      Noted errors in Post data - the following people are in twice:
+      o Spec.  Robert E. Dyas
+        http://apps.washingtonpost.com/national/fallen/6257/robert-dyas/
+        http://apps.washingtonpost.com/national/fallen/6253/robert-dyas/
+      o Spec. Jeffrey L. White, Jr.
+        http://apps.washingtonpost.com/national/fallen/32729/jeffrey-white-jr/
+        http://apps.washingtonpost.com/national/fallen/32731/jeffrey-white-jr/
+      o Lance Cpl.  Ramon T. Kaipat
+        http://apps.washingtonpost.com/national/fallen/32737/ramon-kaipat/
+        http://apps.washingtonpost.com/national/fallen/32735/ramon-kaipat/
+      o Sgt.  Jabraun S. Knox
+        http://apps.washingtonpost.com/national/fallen/32780/jabraun-knox/
+        http://apps.washingtonpost.com/national/fallen/32781/jabraun-knox/
+      o Culinary Specialist 2nd Class  Milton W. Brown
+        http://apps.washingtonpost.com/national/fallen/32943/milton-brown/
+        http://apps.washingtonpost.com/national/fallen/32944/milton-brown/
+      o Sgt.  Camella M. Steedley
+        http://apps.washingtonpost.com/national/fallen/32942/camella-steedley/
+        http://apps.washingtonpost.com/national/fallen/32939/camella-steedley/
+    */
+
+    for ( var i = 0; i < casualtyList.length; i++ ) {
+      file.write('troubleshooting.txt','trying ' + i + " : " + casualtyList[i])
+      extractAll(GET(casualtyList[i]).text, "#content", function(content) {
+        var data = {
+          name:   content.querySelector("h2 strong").textContent.replace(/\n/g,"").trim(),
+          photo:  content.querySelector("._photo img").getAttribute("src"),
+          age:    content.querySelector("._bio ul li:nth-child(1)").textContent.replace(/Age: /,""),
+          sex:    content.querySelector("._bio ul li:nth-child(2) a").textContent,
+          town:   content.querySelector("._bio ul li:nth-child(3)").textContent.replace(/Hometown: /,""),
+          branch: content.querySelector("._bio ul li:nth-child(4)").textContent.replace(/Branch: /,""),
+          unit:   content.querySelector("._bio ul li:nth-child(5)").textContent.replace(/Unit: /,"").trim(),
+          date:   content.querySelector("._incident .death_date strong").textContent,
+          cause:  content.querySelector("._incident .death_date").textContent,
+          loc:    content.querySelector("._incident .province a").textContent
+        }
+        data.cause = data.cause.replace(new RegExp("^"+data.date+": "), "")
+        casualtyDetails.push(data)
+        appendlog.WriteLine( JSON.stringify(data))
+        WScript.Sleep(1000) // don't flag a DoS attack
+      })
+    }
+    file.write("cached-details.js", JSON.stringify(casualtyDetails))
+    appendlog.Close()
+  }
+
+  var details = JSON.parse(file.read("cached-details.js"))
+
+  var locations = {"Kandahar":"a","Afghanistan":"a","Paktika":"a","Paktia":"a","Baghdad":"i","Iraq":"i","Kirkuk":"i","Kunar":"a","Karbala":"i","Kabul":"a","Najaf":"i","Anbar":"i","Babil":"i","Bamian":"a","Diwaniyah":"i","Ghazni":"a","Basra":"i","Helmand":"a","Diyala":"i","Logar":"a","Uruzgan":"a","Laghman":"a","Zabul":"a","Herat":"a","Salahuddin":"i","Baghlan":"a","Farah":"a","Wardak":"a","Khost":"a","Kapisa":"a","Balkh":"a","Wasit":"i","Badghis":"a","Kunduz":"a","Nangahar":"a","Nimruz":"a","Dahuk":"i","Parwanv":"a","Takhar":"a","Panjshir":"a","Faryab":"a","Daikundi":"a"}
+
+  var data = []
+  details.forEach(function(casualty){
+    var d = new Date(casualty.date)
+    data.push({
+      name:casualty.name,
+      age: casualty.age,
+      date:casualty.date.replace(/( \d{1,2})(st|nd|rd|th)/g,"$1"),
+      loc:locations[casualty.loc],
+      c: casualty.loc,
+      b: casualty.branch
+    })
+  })
+  data = data.sort(function (a, b) { return new Date(a.date) - new Date(b.date)})
+  var dataString = JSON.stringify(data).replace(/},{/gi, "},\n{")
+
+  file.write("data.js", dataString)
+  //file.write("capture.log", log.join("\r\n"))
+  ie.Quit()
+ 
+</script>
+</job>
