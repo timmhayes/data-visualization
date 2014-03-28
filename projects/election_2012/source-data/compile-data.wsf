@@ -1,10 +1,10 @@
 ﻿
 <job>
-<script src="../../../common/js/helpers.js"/>
-<script src="../../../common/js/json2.js" /> <!-- Not supported in JScript 5.7 with WSH-->
+<script src="../../../common/wsh-libs/helpers.js"/>
+<script src="../../../common/wsh-libs/json2.js" /> <!-- Not supported in JScript 5.7 with WSH-->
 <script>
-  /// <reference path="../bin/shared.js">
-  /// <reference path="../bin/json2.js"
+  /// <reference path="../../../common/wsh-libs/helpers.js">
+  /// <reference path="../../../common/wsh-libs/json2.js">
 
  var acsFieldValues = [
   "NAME",        //  0  name of county/state

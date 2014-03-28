@@ -1,4 +1,4 @@
-﻿/// <reference path="d3.v3.min.js">
+﻿/// <reference path="../../common/js/d3.v3.min.js">
 
 d3.json("data.js", function (json) {
 

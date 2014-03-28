@@ -6,6 +6,10 @@ var msxml = (function(v) {
   return f;
 })(9);
 
+if (!this.alert) {
+  function alert(s) {WScript.echo(s)}
+}
+
 function here(s) { return (/:/.test(s)?'':here.path)+(s||'') };
 here.fix=function(s) { while (here.fix.r.test(s)) s=s.replace(here.fix.r, ''); return s };
 here.fix.r=/([^\\\/]+[\\{2}\/]\.{2}[\\{2}\/]?)/;
@@ -62,3 +66,27 @@ var file = (function() {
 
   }
 })()
+
+if (!Array.prototype.forEach) {
+  Array.prototype.forEach = function(fun /*, thisArg */) {
+    "use strict";
+
+    if (this === void 0 || this === null)
+      throw new TypeError();
+
+    var t = Object(this);
+    var len = t.length >>> 0;
+    if (typeof fun !== "function")
+      throw new TypeError();
+
+    var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+    for (var i = 0; i < len; i++) {
+      if (i in t)
+        fun.call(thisArg, t[i], i, t);
+    }
+  };
+}
+
+if (!String.prototype.trim) {
+  String.prototype.trim = function() {return this.replace(/(^[\s]+|[\s]+$)/g, '')}
+}
