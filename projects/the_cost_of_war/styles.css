@@ -1,0 +1,150 @@
+
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: yellow;
+}
+
+.chartwrapper {
+  height: 900px;
+}
+
+.description {
+  max-width: 900px;
+}
+
+.tooltip {
+  background-color: #000;
+  border: 1px #fff solid;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(128,128,128,0.5);
+  color: #fff;
+  opacity: 0.85;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  z-index: 10;
+}
+
+  .tooltip h3 {
+    border-bottom: 1px #fff solid;
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+  }
+
+  .tooltip span {
+   f  ont-weight: bold;
+    padding-right: 10px;
+  }
+
+svg {
+  border: 1px #fff solid;
+  overflow: hidden;
+}
+
+text {
+  fill: white;
+  font-family: Arial;
+  font-size: 18px;
+  text-anchor: middle;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.subtitle, .title-counter {
+  font-size: 14px;
+}
+
+.bigcircle {
+  fill: white;
+}
+
+.counter {
+  dominant-baseline: middle;
+  font-size: 48px;
+}
+
+  .counter.initial {
+    cursor: pointer;
+    fill: red;
+  }
+
+.animationText {
+  text-anchor: start;
+}
+
+circle {
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+}
+
+  circle.initial {
+    display: none;
+  }
+
+  circle.over {
+    fill: #fff;
+  }
+
+  circle.match {
+    -o-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -webkit-transition-delay: 0s;
+    opacity: 1;
+    transition-delay: 0s;
+    visibility: visible;
+  }
+
+  circle.nomatch {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+.controls {
+  left: 905px;
+  margin: 10px;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+}
+
+  .controls li {
+    background: #222;
+    border: 1px #fff solid;
+    color: #fff;
+    cursor: pointer;
+    font-size: small;
+    list-style-type: none;
+    padding: 10px 17px;
+  }
+
+    .controls li:hover {
+      background: #333;
+      text-decoration: underline;
+    }
+
+    .controls li:first-child {
+      border-radius: 4px 4px 0 0;
+    }
+
+    .controls li:last-child {
+      border-radius: 0 0 4px 4px;
+    }
+
+    .controls li.active {
+      background: #444;
+    }
+
+      .controls li.active:before {
+        color: red;
+        content: ">";
+        font-weight: bold;
+        left: 10px;
+        position: absolute;
+      }

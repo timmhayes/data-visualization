@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Data visualization of US military deaths in Afghanistan and Iraq"/>
+  <title>The Cost of War: US Military Deaths in Afghanistan and Iraq</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <!--h1>The Cost of War</h1>
+  <h2>US Military Deaths in Afghanistan and Iraq</h2-->
+  <div class="chartwrapper"></div>
+   <ul class="controls">
+    <li><input type="text" placeholder="search for name" class="namesearch"/></li>
+    <li data-type="loc" aria-role="button">Casualties by country</li>
+    <li data-type="age" aria-role="button">Casualties by age</li>
+    <li data-type="date" aria-role="button">Casualties by year</li>
+    <li data-type="b" aria-role="button">Casualties by military branch</li>
+   </ul>
+   <div class="description">
+    <p>
+      This data visualizaton charts the many brave U.S. service members who died fighting in Iraq and Afghanistan between 2001 and 2014.
+    </p>
+    <p>
+      Source: Data comes from the <a href="http:www.washingtonpost.com">Washington Post's</a> fantastic <a href="http://apps.washingtonpost.com/national/fallen/">Faces of the Fallen</a> project. 
+    </p>
+  </div>
+  <script src="../../common/js/d3.v3.min.js"></script>
+  <script src="chart.js"></script>
+</body>
+</html>
