@@ -1,3 +1,7 @@
 
 /_archive
 /_books
+/projects/cdc
+thumbs.db
+.gitignore
+.jshintrc
