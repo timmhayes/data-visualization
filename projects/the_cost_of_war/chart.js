@@ -63,8 +63,9 @@ d3.json("data.js", function (json) {
               .attr("transform", "translate(" + size.x + "," + (size.y-180)+ ")")
               .text("U.S. Casualties: 2001-2014")
   var counter = svg.append("text")
-              .attr("class", "counter initial")
+              .attr("class", "counter loading")
               .attr("transform", "translate(" + size.x + "," + (size.y)+ ")")
+              .text("loading...")
               .text("[ start ]")
               .on("click", function(){
                 animation.start()
