@@ -79,7 +79,10 @@ text {
   dominant-baseline: middle;
   font-size: 48px;
 }
-
+  .counter.loading {
+    cursor: pointer;
+    font-size: 32px;
+  }
   .counter.initial {
     cursor: pointer;
     fill: red;
@@ -127,14 +130,15 @@ circle {
     background: #222;
     border: 1px #fff solid;
     color: #fff;
-    cursor: pointer;
+    cursor: default;
     font-size: small;
     list-style-type: none;
     padding: 10px 17px;
   }
 
-    .controls li:hover {
+    .controls li:hover:not(.disabled) {
       background: #333;
+      cursor: pointer;
       text-decoration: underline;
     }
 
@@ -148,6 +152,10 @@ circle {
 
     .controls li.active {
       background: #444;
+    }
+
+    .controls li.disabled {
+      color:  #333
     }
 
       .controls li.active:before {
