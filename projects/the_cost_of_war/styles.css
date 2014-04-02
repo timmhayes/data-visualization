@@ -23,6 +23,7 @@ a {
   border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(128,128,128,0.5);
   color: #fff;
+  max-width: 400px;
   opacity: 0.85;
   padding: 10px;
   position: absolute;
@@ -37,9 +38,17 @@ a {
     padding: 0 0 10px 0;
   }
 
+  .filter-date .date,
+  .filter-loc .loc,
+  .filter-age .age,
+  .filter-b .b {
+    background-color: red;
+    font-weight: bold;
+  }
+
   .tooltip span {
-   f  ont-weight: bold;
-    padding-right: 10px;
+    font-weight: bold;
+    padding: 0 5px;
   }
 
 svg {
