@@ -49,22 +49,22 @@ d3.json("data.js", function (json) {
 
   var data    = json
   var padding = { top: 20, right: 20, bottom: 50, left: 20 }
-  var size    = { height: 900, width: 900, x: 450, y: 450, circle: 4 }
+  var size = { height: 900, width: 900, x: 450, y: 450, circle: 4 }
 
   var svg = d3.select(".chartwrapper").append("svg")
               .attr("width", size.width)
               .attr("height", size.height)
   var title = svg.append("text")
               .attr("class", "title")
-              .attr("transform", "translate(" + size.x + "," + (size.y-200)+ ")")
+              .attr("transform", "translate(" + size.x + "," + (size.y - 200) + ")")
               .text("The Cost of War")
   var subtitle = svg.append("text")
               .attr("class", "subtitle")
-              .attr("transform", "translate(" + size.x + "," + (size.y-180)+ ")")
+              .attr("transform", "translate(" + size.x + "," + (size.y - 180) + ")")
               .text("U.S. Casualties: 2001-2014")
   var counter = svg.append("text")
               .attr("class", "counter loading")
-              .attr("transform", "translate(" + size.x + "," + (size.y)+ ")")
+              .attr("transform", "translate(" + size.x + "," + (size.y) + ")")
               .text("loading...")
               .text("[ start ]")
               .on("click", function(){
@@ -72,7 +72,7 @@ d3.json("data.js", function (json) {
               })
   var counterTitle = svg.append("text")
               .attr("class", "title-counter")
-              .attr("transform", "translate(" + size.x + "," + (size.y+32)+ ")")
+              .attr("transform", "translate(" + size.x + "," + (size.y + 32) + ")")
   var tooltip = d3.select("body").append("div")
               .attr("class", "tooltip")
 
