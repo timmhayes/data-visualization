@@ -15,7 +15,7 @@
   var subtitle = svg.append("text")
               .attr("class", "subtitle")
               .attr("transform", "translate(" + size.x + "," + (size.y - 180) + ")")
-              .text("U.S. Casualties: 2001-2014")
+              .text("U.S. Fatalities: 2001-2014")
   var tooltip = d3.select("body").append("div")
               .attr("class", "tooltip")
   var counter = svg.append("text")
@@ -220,7 +220,7 @@
 
         counter.text((tickCount + 1))
         if (tickCount === 0) counterTitle.text("fatality")
-        else if (tickCount == 1) counterTitle.text("casualties")
+        else if (tickCount == 1) counterTitle.text("fatalities")
 
         // this is faster than css query once thousands of items on screen
         Array.prototype.slice.call(circles, tickCount, tickCount + increment).forEach(function (o) {
@@ -348,7 +348,7 @@
           d3.selectAll("circle").classed("initial", false).attr("r", size.circle)
           svg.selectAll(".title, .subtitle, .animationText, .bigcircle").style("display", "none")
           counter.text(data.length)
-          counterTitle.text("casualties")
+          counterTitle.text("fatalities")
           clearInterval(tickCounter)
         }
 
