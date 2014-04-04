@@ -81,7 +81,7 @@
 
     var data = json
     data.forEach(function (o) {
-      o.date = new Date(o.date).valueOf()
+      o.dateInt = new Date(o.date).valueOf()
     })
     var plot = circlePlotter([0, data.length], [0, size.width], [0, size.height], 100, 9)
     var color20 = d3.scale.category20c()
@@ -124,7 +124,7 @@
           .classed("over", true)
         tooltip.style("visibility", "visible")
           .html("<h3>" + d.name + "</h3>" +
-                "<div><span>Died:</span><span class='date'>" + new Date(d.date).toDateString() + "</span></div>" +
+                "<div><span>Died:</span><span class='date'>" + d.date + "</span></div>" +
                 "<div><span>In:</span><span class='loc'>" + d.c + ((!d.c.match(/(Iraq|Afghanistan)/)) ? (d.loc == "a" ? ", Afghanistan" : ", Iraq") : "") + "</span></div>" +
                 "<div><span>At age:</span><span class='age'>" + d.age + "</span></div> " +
                 "<div><span>Branch:</span><span class='b'>" + d.b + "</span></div>")
@@ -146,7 +146,7 @@
 
       plot.setDrawMode((type == "initial") ? "rings" : "wedge") // force circlePlot to draw view in concentric rings or wedges
 
-      var attributeToSortOn = (type=="initial") ? "date" : type
+      var attributeToSortOn = (type=="initial" || type=="date") ? "dateInt" : type
       data = data.sort(function (a, b) {
         // chrome does not sort matching values consistently (like dates). Return secondary unique value if primary values are equal
         if (a[attributeToSortOn] == b[attributeToSortOn]) return a.name > b.name ? 1: -1
