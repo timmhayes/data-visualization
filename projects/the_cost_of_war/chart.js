@@ -66,7 +66,7 @@
       return points[item]
     }
 
-    plot.sort = function (type) {
+    plot.setDrawMode = function (type) {
       if (type == currentView) return
       var attr = (type == "rings") ? "order" : "angle"
       points = points.sort(function (a, b) { return a[attr] - b[attr] })
@@ -144,7 +144,7 @@
 
     function draw(type) {
 
-      plot.sort((type == "initial") ? "rings" : "wedge") // force circlePlot to draw view in concentric rings or wedges
+      plot.setDrawMode((type == "initial") ? "rings" : "wedge") // force circlePlot to draw view in concentric rings or wedges
 
       var attributeToSortOn = (type=="initial") ? "date" : type
       data = data.sort(function (a, b) {
