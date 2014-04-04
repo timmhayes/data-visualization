@@ -168,11 +168,11 @@
           .attr("cx", function (d, i) { return plot(i).x })//+ Math.random()*5}
           .attr("cy", function (d, i) { return plot(i).y })//+ Math.random()*5}
 
-      if (type == "initial") circle.attr("fill", "red")
+      if (type == "initial")   circle.attr("fill", "red")
       else if (type == "date") circle.attr("fill", function (d, i) { return color20((new Date(d.date)).getYear() - 2000); })
-      else if (type == "loc") circle.attr("fill", function (d, i) { return color10((d.loc == "a")); })
-      else if (type == "age") circle.attr("fill", function (d, i) { return color20(d.age); })
-      else if (type == "b") circle.attr("fill", function (d, i) { return color20(d.b); })
+      else if (type == "loc")  circle.attr("fill", function (d, i) { return color10((d.loc == "a")); })
+      else if (type == "age")  circle.attr("fill", function (d, i) { return color20(d.age); })
+      else if (type == "b")    circle.attr("fill", function (d, i) { return color20(d.b); })
 
     }
 
@@ -198,12 +198,12 @@
                   .attr("d", arc)
       function arcTween(transition, newAngle) {
         transition.attrTween("d", function (d) {
-          var interpolate = d3.interpolate(d.endAngle, newAngle);
+          var interpolate = d3.interpolate(d.endAngle, newAngle)
           return function (t) {
-            d.endAngle = interpolate(t);
-            return arc(d);
-          };
-        });
+            d.endAngle = interpolate(t)
+            return arc(d)
+          }
+        })
       }
 
       function tick() {
@@ -329,7 +329,6 @@
         start: function () {
           animation.complete = false
           d3.select(".restart").classed("disabled", true)
-
           draw("initial")
           circles = document.querySelectorAll("circle")
           d3.select(".counter.initial").on("click", null).classed("initial", false)
