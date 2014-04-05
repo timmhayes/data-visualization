@@ -168,7 +168,7 @@
           .attr("cx", function (d, i) { return plot(i).x })//+ Math.random()*5}
           .attr("cy", function (d, i) { return plot(i).y })//+ Math.random()*5}
 
-      if (type == "initial")   circle.attr("fill", "red")
+      if (type == "initial")   circle.attr("fill", "red").attr("class", "match initial")
       else if (type == "date") circle.attr("fill", function (d, i) { return color20((new Date(d.date)).getYear() - 2000); })
       else if (type == "loc")  circle.attr("fill", function (d, i) { return color10((d.loc == "a")); })
       else if (type == "age")  circle.attr("fill", function (d, i) { return color20(d.age); })
@@ -196,6 +196,7 @@
                   .attr("transform", "translate(" + size.x + "," + size.y + ")")
                   .datum({ endAngle: 0 })
                   .attr("d", arc)
+      draw("initial")
 
       function arcTween(transition, newAngle) {
         transition.attrTween("d", function (d) {
@@ -333,7 +334,6 @@
           draw("initial")
           circles = document.querySelectorAll("circle")
           d3.select(".counter.initial").on("click", null).classed("initial", false)
-          d3.selectAll(circles).attr("class", "match initial")
           svg.selectAll(".title, .subtitle, .animationText, .bigcircle").style("display", "block")
           svg.selectAll(".title, .subtitle").transition().style("opacity", 1)
           increment = 1
