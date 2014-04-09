@@ -2,7 +2,7 @@
 body {
   background-color: black;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -58,7 +58,6 @@ svg {
 
 text {
   fill: white;
-  font-family: Arial;
   font-size: 18px;
   text-anchor: middle;
 }
@@ -131,7 +130,7 @@ circle {
     border: 1px #fff solid;
     color: #fff;
     cursor: default;
-    font-size: small;
+    font-family: 'Oswald', sans-serif;
     list-style-type: none;
     padding: 10px 17px;
   }
