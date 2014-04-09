@@ -171,7 +171,7 @@
       if (type == "initial")   circle.attr("fill", "red").attr("class", "match initial")
       else if (type == "date") circle.attr("fill", function (d, i) { return color20((new Date(d.date)).getYear() - 2000); })
       else if (type == "loc")  circle.attr("fill", function (d, i) { return color10((d.loc == "a")); })
-      else if (type == "age")  circle.attr("fill", function (d, i) { return color20(d.age); })
+      else if (type == "age")  circle.attr("fill", function (d, i) { return color10(Math.floor((d.age-5)/10)); })
       else if (type == "b")    circle.attr("fill", function (d, i) { return color20(d.b); })
 
     }
