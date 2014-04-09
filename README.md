@@ -7,3 +7,7 @@ This project contains example visualizations using D3.js JavaScript library.
 
 ![2012 Election Visualization](/common/img/election-full.png "2012 Election Visualization")
 
+* [The Cost of War](https://rawgithub.com/timmhayes/data-visualization/master/projects/the_cost_of_war/chart.html): Exploring the 6776 U.S soldiers who have died in Iraq and Afghanistan between 2001 and 2014.
+
+
+![The Cost of War](/common/img/cost-of-war-full.png "The Cost of War")
