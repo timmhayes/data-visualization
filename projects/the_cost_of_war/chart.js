@@ -338,8 +338,10 @@
           svg.selectAll(".title, .subtitle").transition().style("opacity", 1)
           increment = 1
           tickCount = 0
-          tick()
-          tickCounter = setInterval(tick, cycleTime + 1000)
+          setTimeout(function(){ // allow redraw in IE
+            tick()
+            tickCounter = setInterval(tick, cycleTime + 1000)
+          },0)
         },
         stop: function () {
           animation.complete = true
