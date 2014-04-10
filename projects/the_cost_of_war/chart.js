@@ -32,6 +32,8 @@
     var currentView = "rings"
     var τ = 2 * Math.PI
     var points = []
+    var oneQuarterCircle = (0.25 * τ)
+    var threeQuarterCircle = (0.75 * τ)
     var centerPoint = {
       x: (rangeX[1] - rangeX[0]) / 2,
       y: (rangeY[1] - rangeY[0]) / 2
@@ -40,6 +42,7 @@
     var circumference, circleCount, incrementAngle, pointEnd = -1
 
     for (var i = input[0], l = input[1]; i < l; i++) {
+
       if (i >= pointEnd) {
         circleCount = 0
         radius += pointSize
@@ -51,11 +54,13 @@
         pointEnd = i + maxPoints
       }
 
-      var angle = incrementAngle * circleCount
+      var angle = incrementAngle * circleCount  // starting from 90 degrees
+      var topAngle = (angle > threeQuarterCircle) ? (angle - threeQuarterCircle) : (angle + oneQuarterCircle) // offset by 90 degrees so pie starts at 12 o'clock
+
       points[i] = {
         x: radius * Math.cos(angle) + centerPoint.x,
         y: radius * Math.sin(angle) + centerPoint.y,
-        angle: angle,
+        angle: topAngle,
         order: i
       }
 
