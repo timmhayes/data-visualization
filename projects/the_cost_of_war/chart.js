@@ -80,9 +80,18 @@
   d3.json("data.js", function (json) {
 
     var data = json
+
+    var branches = {}
     data.forEach(function (o) {
       o.dateInt = new Date(o.date).valueOf()
+      if (!branches[o.b]) branches[o.b] = 1
+      else branches[o.b]++
     })
+    data.forEach(function (o) {
+      // allow sorting of military branch by most frequent to least
+      o.branchSort = 1 / branches[o.b]
+    })
+
     var plot = circlePlotter([0, data.length], [0, size.width], [0, size.height], 100, 9)
     var color20 = d3.scale.category20c()
     var color10 = d3.scale.category10()
@@ -125,7 +134,7 @@
         tooltip.style("visibility", "visible")
           .html("<h3>" + d.name + "</h3>" +
                 "<div><span>Died:</span><span class='date'>" + d.date + "</span></div>" +
-                "<div><span>In:</span><span class='loc'>" + d.c + ((!d.c.match(/(Iraq|Afghanistan)/)) ? (d.loc == "a" ? ", Afghanistan" : ", Iraq") : "") + "</span></div>" +
+                "<div><span>In:</span><span class='loc'>" + d.c + ((!d.c.match(/(Iraq|Afghanistan)/)) ? (d.loc == "2" ? ", Afghanistan" : ", Iraq") : "") + "</span></div>" +
                 "<div><span>At age:</span><span class='age'>" + d.age + "</span></div> " +
                 "<div><span>Branch:</span><span class='b'>" + d.b + "</span></div>")
       },
@@ -146,10 +155,10 @@
 
       plot.setDrawMode((type == "initial") ? "rings" : "wedge") // force circlePlot to draw view in concentric rings or wedges
 
-      var attributeToSortOn = (type=="initial" || type=="date") ? "dateInt" : type
+      var attributeToSortOn = (type == "initial" || type == "date") ? "dateInt" : ((type == "b") ? "branchSort" : type)
       data = data.sort(function (a, b) {
         // chrome does not sort matching values consistently (like dates). Return secondary unique value if primary values are equal
-        if (a[attributeToSortOn] == b[attributeToSortOn]) return a.name > b.name ? 1: -1
+        if (a[attributeToSortOn] == b[attributeToSortOn]) return a.name > b.name ? 1 : -1
         else return a[attributeToSortOn] > b[attributeToSortOn] ? 1 : -1
       })
 
@@ -170,8 +179,8 @@
 
       if (type == "initial")   circle.attr("fill", "red").attr("class", "match initial")
       else if (type == "date") circle.attr("fill", function (d, i) { return color20((new Date(d.date)).getYear() - 2000); })
-      else if (type == "loc")  circle.attr("fill", function (d, i) { return color10((d.loc == "a")); })
-      else if (type == "age")  circle.attr("fill", function (d, i) { return color10(Math.floor((d.age-5)/10)); })
+      else if (type == "loc")  circle.attr("fill", function (d, i) { return color10((d.loc == "2")); })
+      else if (type == "age")  circle.attr("fill", function (d, i) { return color10(Math.floor((d.age - 5) / 10)); })
       else if (type == "b")    circle.attr("fill", function (d, i) { return color20(d.b); })
 
     }

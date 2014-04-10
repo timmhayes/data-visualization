@@ -133,7 +133,7 @@
 
   var details = JSON.parse(file.read("cached-details.js"))
 
-  var locations = {"Kandahar":"a","Afghanistan":"a","Paktika":"a","Paktia":"a","Baghdad":"i","Iraq":"i","Kirkuk":"i","Kunar":"a","Karbala":"i","Kabul":"a","Najaf":"i","Anbar":"i","Babil":"i","Bamian":"a","Diwaniyah":"i","Ghazni":"a","Basra":"i","Helmand":"a","Diyala":"i","Logar":"a","Uruzgan":"a","Laghman":"a","Zabul":"a","Herat":"a","Salahuddin":"i","Baghlan":"a","Farah":"a","Wardak":"a","Khost":"a","Kapisa":"a","Balkh":"a","Wasit":"i","Badghis":"a","Kunduz":"a","Nangahar":"a","Nimruz":"a","Dahuk":"i","Parwanv":"a","Takhar":"a","Panjshir":"a","Faryab":"a","Daikundi":"a"}
+  var locations = {"Kandahar":"2","Afghanistan":"2","Paktika":"2","Paktia":"2","Baghdad":"1","Iraq":"1","Kirkuk":"1","Kunar":"2","Karbala":"1","Kabul":"2","Najaf":"1","Anbar":"1","Babil":"1","Bamian":"2","Diwaniyah":"1","Ghazni":"2","Basra":"1","Helmand":"2","Diyala":"1","Logar":"2","Uruzgan":"2","Laghman":"2","Zabul":"2","Herat":"2","Salahuddin":"1","Baghlan":"2","Farah":"2","Wardak":"2","Khost":"2","Kapisa":"2","Balkh":"2","Wasit":"1","Badghis":"2","Kunduz":"2","Nangahar":"2","Nimruz":"2","Dahuk":"1","Parwanv":"2","Takhar":"2","Panjshir":"2","Faryab":"2","Daikundi":"2"}
 
   var data = []
   details.forEach(function(casualty){
