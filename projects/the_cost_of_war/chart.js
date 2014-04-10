@@ -98,8 +98,7 @@
     })
 
     var plot = circlePlotter([0, data.length], [0, size.width], [0, size.height], 100, 9)
-    var color20 = d3.scale.category20c()
-    var color10 = d3.scale.category10()
+
     counter.text("[ start ]")
       .classed("initial", true)
       .classed("loading", false)
@@ -159,6 +158,8 @@
     function draw(type) {
 
       plot.setDrawMode((type == "initial") ? "rings" : "wedge") // force circlePlot to draw view in concentric rings or wedges
+      var color20 = d3.scale.category20c()
+      var color10 = d3.scale.category10()
 
       var attributeToSortOn = (type == "initial" || type == "date") ? "dateInt" : ((type == "b") ? "branchSort" : type)
       data = data.sort(function (a, b) {
@@ -169,6 +170,7 @@
 
       tooltip.classed("filter-initial filter-date filter-loc filter-age filter-b", false)
         .classed("filter-" + type, true)
+
       var circle = svg.selectAll("circle")
                       .data(data, function (d) { return d.name; })
 
@@ -177,7 +179,7 @@
         .append("circle")
         .on(circleMouseEvents)
 
-        circle.transition().duration(type=="initial"?0:1000)
+      circle.transition().duration(type == "initial" ? 0 : 1000)
           .attr("r", size.circle)
           .attr("cx", function (d, i) { return plot(i).x })//+ Math.random()*5}
           .attr("cy", function (d, i) { return plot(i).y })//+ Math.random()*5}
@@ -352,10 +354,10 @@
           svg.selectAll(".title, .subtitle").transition().style("opacity", 1)
           increment = 1
           tickCount = 0
-          setTimeout(function(){ // allow redraw in IE
+          setTimeout(function () { // allow redraw in IE
             tick()
             tickCounter = setInterval(tick, cycleTime + 1000)
-          },0)
+          }, 0)
         },
         stop: function () {
           animation.complete = true
