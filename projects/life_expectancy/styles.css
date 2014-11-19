@@ -1,0 +1,83 @@
+
+html {
+  font-family: Arial;
+}
+
+.country:hover {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+#container {
+  margin: 10px 10%;
+  border: 2px solid #000;
+  border-radius: 5px;
+  height: 100%;
+  overflow: hidden;
+  background: #F0F8FF;
+}
+
+.hidden {
+  display: none;
+}
+
+div.tooltip {
+  color: #222;
+  background: #fff;
+  padding: .5em;
+  text-shadow: #f5f5f5 0 1px 0;
+  border-radius: 2px;
+  box-shadow: 0px 0px 2px 0px #a6a6a6;
+  opacity: 0.9;
+  position: absolute;
+}
+
+.graticule {
+  fill: none;
+  stroke: #bbb;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+
+.equator {
+  stroke: #ccc;
+  stroke-width: 1px;
+}
+
+.country {
+  stroke: #ccc;
+  stroke-width: 1px;
+
+}
+
+.spanavg-40 {
+  fill: #f7fcf5;
+}
+
+.spanavg-45 {
+  fill: #e5f5e0;
+}
+
+.spanavg-50 {
+  fill: #c7e9c0;
+}
+
+.spanavg-55 {
+  fill: #a1d99b;
+}
+
+.spanavg-60 {
+  fill: #74c476;
+}
+
+.spanavg-65 {
+  fill: #41ab5d;
+}
+
+.spanavg-70 {
+  fill: #238b45;
+}
+
+.spanavg-75 {
+  fill: #005a32;;
+}
