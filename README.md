@@ -7,3 +7,7 @@ This project contains example visualizations using D3.js JavaScript library.
 
 * [The Cost of War](https://rawgithub.com/timmhayes/data-visualization/master/projects/the_cost_of_war/chart.html): Exploring the 6776 U.S soldiers who have died in Iraq and Afghanistan between 2001 and 2014.<br/><br/>
 <a href="https://rawgithub.com/timmhayes/data-visualization/master/projects/the_cost_of_war/chart.html"><img src="common/img/cost-of-war-full.png" alt="The Cost of War"/></a>
+
+* [Who Guns Kill](https://rawgit.com/timmhayes/data-visualization/master/projects/guns/gun-deaths-us.html): 
+The highest rates of gun violence are not where you think.<br/><br/>
+<a href="https://rawgit.com/timmhayes/data-visualization/master/projects/guns/gun-deaths-us.html"><img src="common/img/guns.png" alt="Who Guns Kill"/></a>
