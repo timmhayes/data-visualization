@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Gun Deaths Per 100,000 People, 2008-2014</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<div class="button-panel">
+  <h1>Gun Deaths Per 100,000 People, 2008-2014</h1>
+  <button data-update="all">All Deaths</button>
+  <button data-update="homicide">Homicides Only</button>
+  <button data-update="suicide">Suicide Only</button>
+</div>
+<div id="tooltip"></div>
+<svg viewBox="0 0 1000 650"></svg>
+<section class="citations">
+  <h2>Citations:</h2>
+  <p>
+    Data provide by the WISQARS™ Fatal Injury Mapping database, Center for Disease Control and Prevention (CDC), 2008-2014,
+    <a href="https://wisqars.cdc.gov:8443/cdcMapFramework/">https://wisqars.cdc.gov:8443/cdcMapFramework/</a>,
+  </p>
+  <p>
+    Data shows death rates per 100,000 population. Search settings on the WISQARS™ data include:
+  </p>
+  <ul>
+    <li>Firearm, All Intents, All Races, All Ethnicities, Both Sexes, All Ages </li>
+    <li>Map level county</li>
+    <li>Geospatial smoothing enabled</li>
+  </ul>
+  <p>
+    For more on how geospatial smoothing was applied to this data, please refer to the CDC's note on WISQARS™
+    <a href="https://www.cdc.gov/injury/wisqars/mapping_help/smoothed_rate.html">Smoothed Rate Calculations</a>.
+  </p>
+</section>
+<script src="https://d3js.org/d3.v5.js"></script>
+<script src="https://d3js.org/d3-request.v1.min.js"></script>
+<script src="https://d3js.org/d3-queue.v3.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="chart.js"></script>

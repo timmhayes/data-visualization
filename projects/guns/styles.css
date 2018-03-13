@@ -1,0 +1,90 @@
+
+html {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.button-panel {
+  text-align: center;
+}
+
+button {
+  background: white;
+  border-radius: 5px;
+  border: 1px rgb(76, 76, 101) solid;
+  padding: 5px 10px;
+}
+
+button.active {
+  background: rgb(43, 43, 77);
+  color: white;
+}
+
+.counties :hover {
+  fill: red;
+}
+
+.county-borders {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 0.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+svg {
+  display: block;
+  height: auto;
+  width: 100%;
+  max-height: 95vh;
+}
+
+#tooltip {
+  background: rgba(255,255,255,0.8);
+  border: 1px rgb(76, 76, 101) solid;
+  border-radius: 5px;
+  display: none;
+  right: 50px;
+  position: absolute;
+  top: 0;
+  width: 200px;
+}
+
+#tooltip.on {
+  display: block;
+}
+
+#tooltip h2 {
+  background-color: rgb(76, 76, 101);
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0;
+  text-align: center;
+}
+
+#tooltip table {
+  padding: 5px 15px;
+  width: 100%;
+}
+
+#tooltip td:first-child {
+  font-weight: bold;
+}
+
+#tooltip td:last-child {
+  min-width: 80px;
+  text-align: right;
+}
+
+.citations {
+  border: 1px #aaa solid;
+  border-radius: 5px;
+  padding: 5px 20px 10px 20px;
+  margin: 0 20px;
+}
